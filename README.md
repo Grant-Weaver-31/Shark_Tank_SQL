@@ -1,12 +1,12 @@
 # Data Cleaning in SQL
-**Summary**: In this project, I cleaned the data using a wide varitey of techniques to better understand the data set. 
+**Summary**: As a fan of Shark Tank, I wished to analyze more of their data and find out some information.  
 
 # Documents
-1. Cleaning.sql: Is the SQL query page where you can see me cleaning the data
+1. Shark_Tank : Contains my SQL code done in MySQL where I analyzed the 
+2. Shark.csv : The csv file from Kaggle: https://www.kaggle.com/datasets/thirumani/shark-tank-us-dataset
 
-# Detailed Walkthrough
-* Created a calculated field
-* Used Inner Join to combine two tables together
-* Filtering data by using Where clause
-* Filtering out null values
-* Renaming Columns to more helpful names
+# Insights
+- Total number of deals = 564
+- Average deal per shark = $240,421
+- Average investment per shark is higher when it comes to multiple entrpenu
+
