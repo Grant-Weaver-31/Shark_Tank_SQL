@@ -1,0 +1,61 @@
+-- Let's have a look at data set --
+SELECT *
+FROM shark_tank_ds;
+-- Question 1: What is the total number of deals that have been made in all seasons of Shark Tank--
+-- Question 2: what is the average deal size in terms of investment amount per shark? --
+
+SELECT COUNT(*) AS Total_Number_of_Deals, 
+       round(AVG(investment_amount_per_shark)) AS Average_Deal_Size_Per_Shark
+FROM shark_tank_ds
+WHERE Got_Deal = 1;
+-- Total_Number_of_Deals= 564 --
+-- Average_Deal_Size_Per_Shark = $240421--
+
+-- Question 3: Top 5 industries have the highest success rate in terms of getting a deal--
+
+
+SELECT Industry, COUNT(*) AS Number_of_Successful_Pitches, 
+       Round(SUM(investment_amount_per_shark)) AS Total_Investment_Amount
+FROM shark_tank_ds
+WHERE Got_Deal = 1
+GROUP BY Industry
+ORDER BY COUNT(*) DESC
+LIMIT 5;
+
+-- Question 4: What is the success rate of pitches that have multiple entrepreneurs versus pitches with a single entrepreneur-- 
+-- Question 5: Is there a significant difference in the investment amount per shark between the two categories?--
+
+SELECT Multiple_Entrepreneurs, COUNT(*) AS Number_of_Pitches, 
+       COUNT(CASE WHEN Got_Deal = 1 THEN 1 END) AS Number_of_Successful_Pitches, 
+       Round(AVG(Investment_Amount_Per_Shark)) AS Average_Investment_Amount_Per_Shark
+FROM shark_tank_ds
+GROUP BY Multiple_Entrepreneurs;
+
+-- Question 6: How does the success rate of pitches vary by state, and which states have the highest and lowest success rates?--
+
+SELECT Pitchers_State, COUNT(*) AS Number_of_Pitches, 
+       COUNT(CASE WHEN Got_Deal = 1 THEN 1 END) AS Number_of_Successful_Pitches, 
+       (COUNT(CASE WHEN Got_Deal = 1 THEN 1 END) / COUNT(*)) * 100 AS Success_Rate
+FROM shark_tank_ds
+GROUP BY Pitchers_State
+ORDER BY Success_Rate DESC;
+ 
+ -- Question 7: How many pitchers are participated by each state and how many where succeed--
+ 
+SELECT Pitchers_State, COUNT(*) AS Number_of_Pitches, 
+       COUNT(CASE WHEN Got_Deal = 1 THEN 1 END) AS Number_of_Successful_Pitches 
+FROM shark_tank_ds
+GROUP BY Pitchers_State 
+ORDER BY Number_of_Successful_Pitches DESC;
+
+-- Question 8: Which shark has invested the most in total across all seasons?--
+
+SELECT
+  round(SUM(Barbara_Corcoran_Investment_Amount)) As Barbara_Corcoran_Investment_Amount,
+  Round(SUM(Mark_Cuban_Investment_Amount)) AS Mark_Cuban_Investment_Amount,
+  Round(SUM(Lori_Greiner_Investment_Amount)) AS Lori_Greiner_Investment_Amount,
+  Round(SUM(Robert_Herjavec_Investment_Amount)) AS Robert_Herjavec_Investment_Amount,
+  Round(SUM(Daymond_John_Investment_Amount)) AS Daymond_John_Investment_Amount,
+  Round(SUM(Kevin_O_Leary_Investment_Amount)) AS Kevin_O_Leary_Investment_Amount
+FROM
+  shark_tank_ds;
