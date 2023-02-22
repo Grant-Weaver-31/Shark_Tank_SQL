@@ -1,5 +1,5 @@
 # Data Cleaning in SQL
-**Summary**: As a fan of Shark Tank, I wished to analyze more of their data and find out some information.  
+**Summary**: As a fan of Shark Tank, I wished to analyze more of their data and find out pertinent information  
 
 **Disclaimer** : This project is a follow-along project from [Jatila Molegoda](https://www.linkedin.com/in/jatila-molegoda-9a330aa7/?locale=en_US)
 
