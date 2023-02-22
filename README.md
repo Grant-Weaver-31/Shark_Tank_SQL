@@ -11,8 +11,8 @@ I retrieved data from Kaggle about Shark Tank (a popular investment show in the 
 - Which shark has invested the most in total across all seasons?
 
 ## Documents
-1. Shark_Tank : Contains my SQL code done in MySQL where I analyzed the 
-2. Shark.csv : The csv file is from [Kaggle](https://www.kaggle.com/datasets/thirumani/shark-tank-us-dataset)
+- Shark_Tank : Contains my SQL code done in MySQL where I analyzed the 
+- Shark.csv : The csv file is from [Kaggle](https://www.kaggle.com/datasets/thirumani/shark-tank-us-dataset)
 
 ## Insights
 - Total number of deals = 564 and average deal per shark = $240,421
